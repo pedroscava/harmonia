@@ -61,68 +61,85 @@
 
 
     <div class="container-xxl py-5">
-    <div class="container">
-        <div class="row g-0">
-            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
-                <div class="bg-secondary p-5">
-                    <p class="d-inline-block bg-dark text-primary py-1 px-4">Contate-nos</p>
-                    <h1 class="text-uppercase mb-4">Dúvidas ou em busca de serviços, nos contate</h1>
-                    <form id="contactForm">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control bg-transparent" id="name" name="name" placeholder="Seu Nome" required>
-                                    <label for="name">Seu nome</label>
+        <div class="container">
+            <div class="row g-0">
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                    <div class="bg-secondary p-5">
+                        <p class="d-inline-block bg-dark text-primary py-1 px-4">Contate-nos</p>
+                        <h1 class="text-uppercase mb-4">Dúvidas ou em busca de serviços, nos contate</h1>
+                        <form id="contactForm">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control bg-transparent" id="name" name="name" placeholder="Seu Nome" required>
+                                        <label for="name">Seu nome</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control bg-transparent" id="email" name="email" placeholder="Seu Email" required>
+                                        <label for="email">Seu Email</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control bg-transparent" id="subject" name="subject" placeholder="Questão" required>
+                                        <label for="subject">Questão</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating">
+                                        <textarea class="form-control bg-transparent" placeholder="Mensagem" id="message" name="message" style="height: 100px"></textarea>
+                                        <label for="message">Mensagem</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-3" type="button" onclick="submitForm()">Enviar</button>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-floating">
-                                    <input type="email" class="form-control bg-transparent" id="email" name="email" placeholder="Seu Email" required>
-                                    <label for="email">Seu Email</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <input type="text" class="form-control bg-transparent" id="subject" name="subject" placeholder="Questão" required>
-                                    <label for="subject">Questão</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="form-floating">
-                                    <textarea class="form-control bg-transparent" placeholder="Mensagem" id="message" name="message" style="height: 100px" required></textarea>
-                                    <label for="message">Mensagem</label>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <button class="btn btn-primary w-100 py-3" type="button" onclick="submitForm()">Enviar</button>
-                            </div>
-                        </div>
-                    </form>
+                            <p id="responseMessage" class="mt-3 text-center" style="display: none; color: green;">
+                                Formulário enviado com sucesso!
+                            </p>
+                            <p id="errorMessage" class="mt-3 text-center" style="display: none; color: red;">
+                                Por favor, preencha todos os campos corretamente.
+                            </p>
+                        </form>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
-                <div class="h-100" style="min-height: 400px;">
-                    <iframe class="google-map w-100 h-100"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652281.951699957!2d-46.74821210490144!3d-23.55052033205365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5943fb4700e7%3A0x7b426d8f32472b0e!2sS%C3%A3o%20Paulo%2C%20SP%2C%20Brazil!5e0!3m2!1sen!2sus!4v1632111234567"
-                        frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0" style="filter: grayscale(100%) invert(92%) contrast(83%); border: 0;"></iframe>
+                <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                    <div class="h-100" style="min-height: 400px;">
+                        <iframe class="google-map w-100 h-100"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652281.951699957!2d-46.74821210490144!3d-23.55052033205365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5943fb4700e7%3A0x7b426d8f32472b0e!2sS%C3%A3o%20Paulo%2C%20SP%2C%20Brazil!5e0!3m2!1sen!2sus!4v1632111234567"
+                            frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0" style="filter: grayscale(100%) invert(92%) contrast(83%); border: 0;"></iframe>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
-<script>
-    function submitForm() {
-        const form = document.getElementById('contactForm');
-        if (form.checkValidity()) {
-            // Simula o envio limpando os campos
-            alert('Formulário enviado com sucesso!');
-            form.reset(); // Limpa os campos
-        } else {
-            alert('Por favor, preencha todos os campos corretamente.');
+    
+    <script>
+        function submitForm() {
+            const form = document.getElementById('contactForm');
+            const responseMessage = document.getElementById('responseMessage');
+            const errorMessage = document.getElementById('errorMessage');
+    
+            if (form.checkValidity()) {
+                // Exibe a mensagem de sucesso
+                responseMessage.style.display = 'block';
+                errorMessage.style.display = 'none';
+    
+                // Limpa o formulário
+                form.reset();
+            } else {
+                // Exibe a mensagem de erro
+                responseMessage.style.display = 'none';
+                errorMessage.style.display = 'block';
+            }
         }
-    }
-</script>
+    </script>
+    
+
+    <!-- Footer Start -->
     <div class="container-fluid bg-secondary text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">
